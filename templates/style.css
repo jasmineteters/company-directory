@@ -1,0 +1,14 @@
+.team-heading {
+background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+color: white;
+border-bottom-left-radius: 25%;
+border-bottom-right-radius: 25%;
+shape-rendering: geometricPrecision;
+}
+
+
+.team-area {
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
