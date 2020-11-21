@@ -16,7 +16,7 @@ const render = require("./lib/htmlRenderer");
 inquirer
     .prompt([{
             type: 'input',
-            name: 'name';
+            name: 'name',
             message: 'what is the name of this employee?',
         },
         {
@@ -30,7 +30,54 @@ inquirer
             name: 'id',
             message: 'what is their employee ID?',
         },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'what is their email address?',
+        },
     ])
+    .then((data) => {
+        getRole(data.role);
+    })
+
+getRole() {
+    if (data.role === "Manager") {
+        .prompt {
+            [{
+                type: 'input',
+                name: 'officeNumber',
+                message: 'Whats their office number?',
+            }, ]
+        }
+    }
+    if
+    else(data.role === "Intern") {
+        .prompt {
+            [{
+                type: 'input',
+                name: 'school',
+                message;
+                'What school do you attend?',
+            }]
+        }
+    }
+    if
+    else(data.role === "Engineer") {
+        .prompt {
+            [{
+                type: 'input',
+                name: 'githubUsername',
+                message;
+                'What is your github username?',
+            }]
+        }
+    }
+}
+// {
+//     type: 'confirm',
+//     message: 'Do you want to add another employee?',
+//     name: 'next'
+// },
 
 
 
