@@ -68,7 +68,7 @@ const managerQuestions = (managerQuestions) => {
         ])
         .then(answers => {
             managers = new Manager(managerQuestions.name, managerQuestions.id, managerQuestions.email, answers.officeNumber);
-            managers.push(employeeList);
+            employeeList.push(managers);
             console.log(managers);
             if (answers.next === true) {
                 newEmployee();
@@ -135,6 +135,12 @@ const internQuestions = (internAnswers) => {
 }
 
 newEmployee();
+
+const buildTeam = () => {
+    fs.mkdirSync(OUTPUT_DIR);
+    fs.writeFileSync(outputPath, render(employeeList), "utf-8")
+}
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
