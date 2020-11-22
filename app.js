@@ -53,7 +53,7 @@ const newEmployee = () => {
 }
 
 // Manager questions 
-const managerQuestions = (manAnswers) => {
+const managerQuestions = (managerQuestions) => {
     inquirer
         .prompt([{
                 type: 'input',
@@ -67,20 +67,20 @@ const managerQuestions = (manAnswers) => {
             },
         ])
         .then(answers => {
-            managers = new Manager(manAnswers.name, manAnswers.id, manAnswers.email, answers.officeNumber);
-            employeeList.push(managers);
+            managers = new Manager(managerQuestions.name, managerQuestions.id, managerQuestions.email, answers.officeNumber);
+            managers.push(employeeList);
             console.log(managers);
-            if (manAnswers.next === true) {
+            if (answers.next === true) {
                 newEmployee();
             }
-            if (manAnswers.next === false) {
+            if (answers.next === false) {
                 buildTeam();
             }
         })
 }
 
 // Engineer questions
-const engineerQuestions = () => {
+const engineerQuestions = (engineerAnswers) => {
     inquirer
         .prompt([{
                 type: 'input',
@@ -93,14 +93,14 @@ const engineerQuestions = () => {
                 name: 'next'
             },
         ])
-        .then(engineerAnswers => {
-            engineers = new Engineer(data.name, data.id, data.email, engineerAnswers.github);
+        .then(answers => {
+            engineers = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, answers.github);
             employeeList.push(engineers);
             console.log(engineers);
-            if (engineerAnswers.next === true) {
+            if (answers.next === true) {
                 newEmployee();
             }
-            if (engineerAnswers.next === false) {
+            if (answers.next === false) {
                 buildTeam();
             }
         })
@@ -120,19 +120,20 @@ const internQuestions = (internAnswers) => {
                 name: 'next'
             },
         ])
-        .then(internAnswers => {
-            interns = new Intern(employeeAnswers.name, employeeAnswers.id, employeeAnswers.email, internAnswers.school);
+        .then(answers => {
+            interns = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, answers.school);
             employeeList.push(interns);
             console.log(interns);
-            if (internAnswers.next === true) {
+            if (answers.next === true) {
                 newEmployee();
             }
-            if (internAnswers.next === false) {
+            if (answers.next === false) {
+                console.log(employeeList);
                 buildTeam();
             }
         })
 }
-console.log(employeeList);
+
 newEmployee();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
